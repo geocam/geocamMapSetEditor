@@ -127,9 +127,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
 
     'geocamUtil',
-
-    # Put your installed apps here!
-    # 'geocamAwesome'
+    'geocamMapSet'
 )
 
 GEOCAM_UTIL_SECURITY_ENABLED = not USING_DJANGO_DEV_SERVER
