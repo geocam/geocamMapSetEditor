@@ -1,6 +1,0 @@
-[submodule "submodules/geocamUtilWeb"]
-	path = submodules/geocamUtilWeb
-	url = git://github.com/geocam/geocamUtilWeb.git
-[submodule "submodules/geocamMapSet"]
-	path = submodules/geocamMapSet
-	url = git://github.com/geocam/geocamMapSet.git
