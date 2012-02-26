@@ -11,4 +11,4 @@ from django.http import HttpResponse
 # from django.utils.translation import ugettext, ugettext_lazy as _
 
 def index(request):
-    return HttpResponse('hello')
+    return render_to_response('index.html')

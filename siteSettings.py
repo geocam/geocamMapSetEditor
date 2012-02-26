@@ -71,7 +71,7 @@ MEDIA_ROOT = os.path.join(PROJ_ROOT, "build", "media", "")
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = SCRIPT_NAME + 'media/'
+MEDIA_URL = SCRIPT_NAME + '/media/'
 
 # Absolute path to the directory that holds data. This is different than media
 # in that it's uploaded/processed data that's not needed for the operation of
@@ -127,7 +127,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
 
     'geocamUtil',
-    'geocamMapSet'
+    'geocamMapSet',
 )
 
 GEOCAM_UTIL_SECURITY_ENABLED = not USING_DJANGO_DEV_SERVER
