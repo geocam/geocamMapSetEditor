@@ -78,6 +78,8 @@ TEMPLATE_DIRS = (
     os.path.join( APPLICATION_DIR, 'mixer/templates' ),
 )
 
+STATIC_URL= '/static/'
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',

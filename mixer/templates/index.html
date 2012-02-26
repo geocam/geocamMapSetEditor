@@ -7,24 +7,36 @@
       body { height: 100%; margin: 0; padding: 0 }
       #map_canvas { height: 100% }
     </style>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}jquery-1.7.1.min.js"></script>
+
     <script type="text/javascript"
       src="http://maps.googleapis.com/maps/api/js?sensor=false">
     </script>
+
     <script type="text/javascript">
       function initialize() {
-        var myOptions = {
-          center: new google.maps.LatLng(9, 75),
-          zoom: 7,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map_canvas"),
-            myOptions);
-        var eqmapLayer = new google.maps.KmlLayer("http://earthquake.usgs.gov/earthquakes/catalogs/eqs7day-age.kmz");
-      eqmapLayer.setMap(map);
+          var myOptions = {
+              center: new google.maps.LatLng(35, -95),
+              zoom: 4,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+          var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+          var mapLayers = new Array();
 
-      var gvpmapLayer = new google.maps.KmlLayer("http://www.volcano.si.edu/world/region.cfm?rnum=14");
-      var trafficLayer = new google.maps.TrafficLayer();
-      trafficLayer.setMap(map);
+          $.getJSON('{{ STATIC_URL }}hurricanelayers.json', function (obj) {
+              mapSet = obj;
+
+              $.each(mapSet.children, function (i, layer) {
+                  console.log(i)
+                  console.log(layer.url)
+                  mapLayers[i] = new google.maps.KmlLayer(layer.url);
+                  mapLayers[i].setMap(map);
+              });
+          });
+
+          //var trafficLayer = new google.maps.TrafficLayer();
+          //trafficLayer.setMap(map);
       }
     </script>
 
